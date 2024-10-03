@@ -21,14 +21,15 @@ jobs:
         uses: actions/checkout@v3
 
       - name: GitHub Actions ALM Octane Integration
-        uses: MicroFocus/alm-octane-github-actions-integration@v1.0
+        uses: MicroFocus/alm-octane-github-actions-integration@v24.4.1
         id: gitHubActionsIntegration
         with:
-          octaneUrl: 'https://almoctane-ams.saas.microfocus.com'
-          octaneSharedSpace: '322006'
-          octaneWorkspace: '34001'
+          octaneUrl: https://almoctane-ams.saas.microfocus.com
+          octaneSharedSpace: 322006
+          octaneWorkspace: 34001
           octaneClientId: ${{secrets.ALM_OCTANE_CLIENT_ID}}
           octaneClientSecret: ${{secrets.ALM_OCTANE_CLIENT_SECRET}}
           githubToken: ${{secrets.GITHUB_TOKEN}}
-          serverBaseUrl: 'https://github.com/thanhdphan/GitHubActionsDemo'
+          serverBaseUrl: https://github.com/thanhdphan/GitHubActionsDemo
+          pipelineNamePattern: '${workflow_name}'
           unitTestResultsGlobPattern: '**/*.xml'
