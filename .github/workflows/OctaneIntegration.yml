@@ -7,7 +7,7 @@ on:
     types: [opened, edited, closed, reopened]
   workflow_dispatch:  # Allows manual run from the Actions tab
 env: 
-    NODE_TLS_REJECT_UNAUTHORIZED: 1
+    NODE_TLS_REJECT_UNAUTHORIZED: 0
 jobs:
   octane_integration_job:
     runs-on: self-hosted
