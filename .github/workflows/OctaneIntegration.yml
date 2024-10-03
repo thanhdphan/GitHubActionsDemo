@@ -11,6 +11,7 @@ on:
 env:
   ACTIONS_RUNNER_DEBUG: true
   ACTIONS_STEP_DEBUG: true
+  NODE_TLS_REJECT_UNAUTHORIZED: 0
   
 jobs:
   octane_integration_job:
@@ -21,7 +22,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: GitHub Actions ALM Octane Integration
-        uses: MicroFocus/alm-octane-github-actions-integration@v24.4.1
+        uses: MicroFocus/alm-octane-github-actions-integration@v24.4.0
         id: gitHubActionsIntegration
         with:
           octaneUrl: https://almoctane-ams.saas.microfocus.com
