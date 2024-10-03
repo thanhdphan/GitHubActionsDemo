@@ -1,4 +1,5 @@
 name: OctaneIntegration
+
 on:
   workflow_run:
     workflows: [GitHubActionsDemo]
@@ -6,24 +7,27 @@ on:
   pull_request:
     types: [opened, edited, closed, reopened]
   workflow_dispatch:  # Allows manual run from the Actions tab
+
 env: 
-    NODE_TLS_REJECT_UNAUTHORIZED: 1
+  NODE_TLS_REJECT_UNAUTHORIZED: 1
+
 jobs:
   octane_integration_job:
-    runs-on: self-hosted
+    runs-on: 'self-hosted'
     name: OctaneIntegration#${{github.event.action}}#${{github.event.workflow_run.id}}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: GitHub Actions ALM Octane Integration
         uses: MicroFocus/alm-octane-github-actions-integration@v1.0
         id: gitHubActionsIntegration
         with:
           octaneUrl: 'https://almoctane-ams.saas.microfocus.com'
-          octaneSharedSpace: 322006
-          octaneWorkspace: 34001
+          octaneSharedSpace: '322006'
+          octaneWorkspace: '34001'
           octaneClientId: ${{secrets.ALM_OCTANE_CLIENT_ID}}
           octaneClientSecret: ${{secrets.ALM_OCTANE_CLIENT_SECRET}}
           githubToken: ${{secrets.GITHUB_TOKEN}}
-          serverBaseUrl: https://github.com/thanhdphan/GitHubActionsDemo
-          unitTestResultsGlobPattern: "**/*.xml"
+          serverBaseUrl: 'https://github.com/thanhdphan/GitHubActionsDemo'
+          unitTestResultsGlobPattern: '**/*.xml'
