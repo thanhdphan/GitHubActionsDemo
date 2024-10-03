@@ -1,0 +1,36 @@
+name: GitHubActionsDemo
+on: [workflow_dispatch]
+
+
+jobs:
+  build:
+    name: Build Project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+      - run: mvn clean install
+  test:
+    name: Run Tests
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+      - run: mvn --batch-mode --update-snapshots verify
+      - run: mkdir reports && cp target/*/*test*.xml reports
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Reports
+          path: reports
+      
+
+
