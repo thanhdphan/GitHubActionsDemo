@@ -11,7 +11,7 @@ on:
 env:
   ACTIONS_RUNNER_DEBUG: true
   ACTIONS_STEP_DEBUG: true
-  NODE_TLS_REJECT_UNAUTHORIZED: 0
+  #NODE_TLS_REJECT_UNAUTHORIZED: 0
   
 jobs:
   octane_integration_job:
@@ -32,5 +32,5 @@ jobs:
           octaneClientSecret: ${{secrets.ALM_OCTANE_CLIENT_SECRET}}
           githubToken: ${{secrets.GITHUB_TOKEN}}
           serverBaseUrl: https://github.com/thanhdphan/GitHubActionsDemo
-          pipelineNamePattern: '${workflow_name}'
+          #pipelineNamePattern: '${workflow_name}'
           unitTestResultsGlobPattern: '**/*.xml'
