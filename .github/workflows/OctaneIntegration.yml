@@ -9,7 +9,7 @@ env:
     NODE_TLS_REJECT_UNAUTHORIZED: 0
 jobs:
   octane_integration_job:
-    runs-on: octane
+    runs-on: self-hosted
     name: OctaneIntegration#${{github.event.action}}#${{github.event.workflow_run.id}}
     steps:
       - name: Checkout
