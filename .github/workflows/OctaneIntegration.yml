@@ -18,9 +18,9 @@ jobs:
         uses: MicroFocus/alm-octane-github-actions-integration@v1.0
         id: gitHubActionsIntegration
         with:
-          octaneUrl: 'http://localhost:8080/dev'
-          octaneSharedSpace: 1001
-          octaneWorkspace: 3001
+          octaneUrl: 'https://almoctane-ams.saas.microfocus.com'
+          octaneSharedSpace: 322006
+          octaneWorkspace: 34001
           octaneClientId: ${{secrets.ALM_OCTANE_CLIENT_ID}}
           octaneClientSecret: ${{secrets.ALM_OCTANE_CLIENT_SECRET}}
           githubToken: ${{secrets.GITHUB_TOKEN}}
