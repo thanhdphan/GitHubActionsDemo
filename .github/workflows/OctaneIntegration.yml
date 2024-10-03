@@ -7,7 +7,11 @@ on:
   pull_request:
     types: [opened, edited, closed, reopened]
   workflow_dispatch:  # Allows manual run from the Actions tab
-
+  
+env:
+  ACTIONS_RUNNER_DEBUG: true
+  ACTIONS_STEP_DEBUG: true
+  
 jobs:
   octane_integration_job:
     runs-on: 'self-hosted'
